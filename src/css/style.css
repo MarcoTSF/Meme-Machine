@@ -30,7 +30,7 @@ body{
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('../images/chloe.png');
+    /* background-image: url('../images/memes/chloe.png'); */
 }
 
 .app{
@@ -60,6 +60,7 @@ textarea{
     font-weight: 600;
     font-family: sans-serif;
     font-size: 20px;
+    text-align: center;
 }
 
 #btn-download{
@@ -68,6 +69,7 @@ textarea{
     font-weight: bolder;
     padding: 10px;
     background-color: orange;
+    transition: 0.5s;
 }
 
 .text-box{
@@ -80,4 +82,10 @@ textarea{
     font-size: large;
     font-family: sans-serif;
     color: black;
+}
+
+#btn-download:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    color: white;
 }

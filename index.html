@@ -14,16 +14,14 @@
                 <div class="logo">
                     <img src="./src/images/logo.png" alt="Logo">
                 </div>
-                <div class="app-image">
+                <div class="app-image" id="downlabled">
                     <textarea 
                         name="" 
                         class="text-box"
                         placeholder="Digite seu meme"
                         aria-multiline="true"
                     ></textarea>
-                    <div id="display-image">
-
-                    </div>
+                    <div id="display-image"></div>
                     <textarea 
                         name="" 
                         class="text-box"
@@ -32,9 +30,10 @@
                     ></textarea>
                 </div>
                 <div class="app-photo-picker">
-                    <select id="meme-list">
-                        <option value="1"></option>
-                    </select>
+                    <select 
+                        id="meme-list"
+                        onchange="changeMemePicture(this.value)"
+                    ></select>
                     <input 
                         type="file" 
                         id="image-input" 
@@ -45,5 +44,21 @@
                 </div>
             </div>
         </div>
+        <script src="./src/js/script.js"></script>
+        <script src="./src/js/html2canvas.js"></script>
+        <script>
+            document.getElementById("btn-download").onclick = () => {
+                const screenshotPrint = document.querySelector("#downlabled")
+
+                html2canvas(screenshotPrint).then((canvas)=>{
+                    const base64Image = canvas.toDataURL("image/png")
+                    let anchor = document.createElement("a")
+                    anchor.setAttribute("href", base64Image)
+                    anchor.setAttribute("download", "my-meme.png")
+                    anchor.click()
+                    anchor.remove()
+                })
+            }
+        </script>
     </body>
 </html>
